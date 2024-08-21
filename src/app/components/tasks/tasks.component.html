@@ -1,0 +1,12 @@
+<!-- by using $event we simply get the task from below which is being iterated -->
+
+<app-add-task (onAddTask)="addTask($event)"></app-add-task>
+
+<div class="scrollbar mt-2 flex h-[200px] flex-col gap-2 overflow-y-auto p-2">
+  <app-task-item
+    (onToggleReminder)="toggleReminder(task)"
+    (onDeleteTask)="deleteTask(task)"
+    *ngFor="let task of tasks"
+    [task]="task"
+  ></app-task-item>
+</div>
